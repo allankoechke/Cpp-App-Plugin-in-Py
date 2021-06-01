@@ -1,13 +1,42 @@
 #include <iostream>
+#include <fstream>
+#include <sstream>
 
 // pybind11 imports
 #include "../pybind11/include/pybind11/embed.h"
 
 namespace py = pybind11;
 
+std::string readMainPyFile()
+{
+    // File path for the main python file
+    std::string pyFile = "../py/main.py";
+
+    std::ifstream inFile(pyFile);
+
+    std::ostringstream ss;
+    
+    // Read the whole main file
+    ss << inFile.rdbuf();
+
+    // Convert the read stream to std string
+    std::string pyContent = ss.str();
+
+    // std::cout << "Python file is: " << pyContent << std::endl;
+
+    inFile.close();
+
+    // Return read contents
+    return pyContent;
+}
+
 void executePy()
 {
-    py::print("Hello, World from Python in C++!"); // use the Python API
+    // Get main.py file contents
+    std::string py_str = readMainPyFile();
+
+    // Execute the main python file
+    py::exec(py_str);
 }
 
 // Entry point for the C++ application
