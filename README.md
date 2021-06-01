@@ -14,11 +14,13 @@ You require to have the following tools installed
 
 Steps to run
 
-`git clone https://github.com/lalan-ke/Cpp-App-Plugin-in-Py.git
+`
+git clone https://github.com/lalan-ke/Cpp-App-Plugin-in-Py.git
 cd Cpp-App-Plugin-in-Py
 cmake .
 make
-./App`
+./App
+`
 
 # Conributing
 You can contribute to the project by sending your PR
