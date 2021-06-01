@@ -15,11 +15,11 @@ You require to have the following tools installed
 Steps to run
 
 `
-git clone https://github.com/lalan-ke/Cpp-App-Plugin-in-Py.git
-cd Cpp-App-Plugin-in-Py
-cmake .
-make
-./App
+- git clone https://github.com/lalan-ke/Cpp-App-Plugin-in-Py.git
+- cd Cpp-App-Plugin-in-Py
+- cmake .
+- make
+- ./App
 `
 
 # Conributing
