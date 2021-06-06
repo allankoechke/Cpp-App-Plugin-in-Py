@@ -12,22 +12,8 @@ std::string readMainPyFile()
     // File path for the main python file
     std::string pyFile = "../py/main.py";
 
-    std::ifstream inFile(pyFile);
-
-    std::ostringstream ss;
-    
-    // Read the whole main file
-    ss << inFile.rdbuf();
-
-    // Convert the read stream to std string
-    std::string pyContent = ss.str();
-
-    // std::cout << "Python file is: " << pyContent << std::endl;
-
-    inFile.close();
-
     // Return read contents
-    return pyContent;
+    return pyFile;
 }
 
 void executePy()
@@ -35,8 +21,10 @@ void executePy()
     // Get main.py file contents
     std::string py_str = readMainPyFile();
 
+    py::object scope = py::module_::import("__main__").attr("__dict__");
+
     // Execute the main python file
-    py::exec(py_str);
+    py::eval_file(py_str, scope);
 }
 
 // Entry point for the C++ application
